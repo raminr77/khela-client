@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Iansui, cursive;
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+  font-family: Iansui, cursive;
+}

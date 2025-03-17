@@ -1,9 +1,7 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
 echo '- formating your code ...'
 
 npm run lint:style
+npx lint-staged
 npm run format
 
 echo '- checking your code ...'
@@ -27,5 +25,3 @@ npm run check-types ||
 )
 
 echo '✅ Done.'
-
-npx lint-staged
