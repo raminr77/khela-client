@@ -1,9 +1,9 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import pluginReact from 'eslint-plugin-react';
 import { globalIgnores } from 'eslint/config';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
+import tseslint from 'typescript-eslint';
+import pluginJs from '@eslint/js';
+import globals from 'globals';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [

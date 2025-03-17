@@ -11,6 +11,15 @@
   "requireConfig": false,
   "trailingComma": "none",
   "editor.formatOnSave": true,
+  "sortingMethod": "lineLength",
+  "importOrderSeparation": true,
   "html.format.wrapLineLength": 80,
-  "html.format.wrapAttributes": "force-expand-multiline"
+  "importOrderSortSpecifiers": true,
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports",
+    "./node_modules/prettier-plugin-sort-imports/dist/index.js"
+  ],
+  "importOrder": ["^react", "<THIRD_PARTY_MODULES>", "^@/", "^[./]"]
 }
