@@ -26,6 +26,7 @@ dist-ssr
 # VS Code
 .vscode/
 .history
+.DS_Store
 
 package-lock.json
 yarn.lock
