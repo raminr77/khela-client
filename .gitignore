@@ -28,5 +28,4 @@ dist-ssr
 .history
 .DS_Store
 
-package-lock.json
 yarn.lock
