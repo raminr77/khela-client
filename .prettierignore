@@ -1,0 +1,12 @@
+*.svg
+*.png
+*.jpg
+*.html
+
+# minify css
+*.min.css
+
+# Ignore artifacts:
+build
+coverage
+node_modules

@@ -10,10 +10,18 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
+    "prepare": "husky",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
     "pretty": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss}\"",
     "lint:style": "npx stylelint --fix \"src/**/*.{css,scss}\" --allow-empty-input"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "src/**/*.{json,css,scss}": "prettier --write"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.14",
@@ -31,6 +39,9 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "3.5.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
