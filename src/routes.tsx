@@ -12,34 +12,41 @@ import { LoginPage } from '@/pages/auth/login-page';
 
 const ROUTES_DATA = [
   {
+    index: true,
     element: <LandingPage />,
     path: APP_ROUTES.landing
   },
   // AUTH
   {
-    path: APP_ROUTES.login,
-    element: <LoginPage />
+    index: false,
+    element: <LoginPage />,
+    path: APP_ROUTES.login
   },
   {
-    path: APP_ROUTES.register,
-    element: <RegisterPage />
+    index: false,
+    element: <RegisterPage />,
+    path: APP_ROUTES.register
   },
   {
-    path: APP_ROUTES.forgetPassword,
-    element: <ForgetPasswordPage />
+    index: false,
+    element: <ForgetPasswordPage />,
+    path: APP_ROUTES.forgetPassword
   },
   // APP
   {
-    path: APP_ROUTES.main,
-    element: <MainPage />
+    index: false,
+    element: <MainPage />,
+    path: APP_ROUTES.main
   },
   // NOT FOUND
   {
-    path: APP_ROUTES.notFound,
-    element: <NotFoundPage />
+    index: false,
+    element: <NotFoundPage />,
+    path: APP_ROUTES.notFound
   },
   {
     path: '*',
+    index: false,
     element: <NotFoundPage />
   }
 ] as const;
@@ -48,8 +55,8 @@ export function Routes() {
   return (
     <BrowserRouter>
       <ReactRoutes>
-        {ROUTES_DATA.map(({ path, element }) => (
-          <Route key={path} path={path} element={element} />
+        {ROUTES_DATA.map(({ path, element, index }) => (
+          <Route key={path} path={path} index={index} element={element} />
         ))}
       </ReactRoutes>
     </BrowserRouter>
