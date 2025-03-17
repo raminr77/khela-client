@@ -11,11 +11,11 @@
     "dev": "vite",
     "prepare": "husky",
     "lint": "eslint . --fix",
-    "preview": "vite preview",
     "format": "prettier --write .",
     "build": "tsc -b && vite build",
     "check-lint": "eslint ./src/**/*",
     "check-format": "prettier . --check",
+    "preview": "vite preview --port 8080",
     "check-types": "tsc --pretty --noEmit --project ./",
     "pretty": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss}\"",
     "lint:style": "npx stylelint --fix \"src/**/*.{css,scss}\" --allow-empty-input"
