@@ -1,6 +1,4 @@
-<center>
-  <img src="./public/images/logo.png" width="100px" style="border-radius: 4px" />
-</center>
+<img src="./public/images/logo.png" width="80px" />
 
 # Khela - Frontend (PWA)
 
