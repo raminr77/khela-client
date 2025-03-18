@@ -28,4 +28,6 @@ dist-ssr
 .history
 .DS_Store
 
+dev-dist/
+
 yarn.lock
