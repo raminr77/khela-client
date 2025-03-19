@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="language" content="en" />
   <meta name="copyright" content="2025" />
-  <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#FFA725" />
   <meta name="author" content="Ramin Rezaei" />
   <meta name="robots" content="index, follow" />
@@ -15,6 +14,7 @@
   <link rel="canonical" href="https://khela.ir/" />
   <meta name="document-rating" content="General" />
   <meta http-equiv="content-language" content="en" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="msapplication-TileColor" content="#FFA725" />
@@ -27,9 +27,11 @@
   <meta name="description" content="Khela is a fun project for sharing your pee and poop with friends!" />
   <meta name="keywords" content="toilet, bathroom, restroom, wc, pee, poop, flush, potty, loo, latrine, fun, friends, share, social, tracker, challenge, adventure, status update, real-time, pooplog, peepee, number1, number2, dump tracker, toilet tales, potty party, bathroom buddy, flush feed" />
   <meta
-    name="viewport"
-    content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no"
+  name="viewport"
+  content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no"
   />
+  <!-- include PWACompat _after_ your manifest -->
+  <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
   <!--   GOOGLE FONTS   -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
