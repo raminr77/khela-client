@@ -11,6 +11,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
+      manifest: false,
       registerType: 'autoUpdate',
       injectRegister: 'script-defer',
       workbox: {
