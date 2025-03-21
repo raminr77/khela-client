@@ -1,7 +1,52 @@
+import { Button } from '@/shared/components/ui/button.tsx';
+import { APP_DATA, APP_ROUTES } from '@/shared/constants';
+import { animator } from '@/shared/helpers';
+import { Link } from 'react-router';
+import { clsx } from 'clsx';
+
 export function LandingPage() {
   return (
-    <div>
-      <h3>Landing Page</h3>
-    </div>
+    <main className='w-full h-screen overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
+      <section
+        className={clsx(
+          'flex flex-col items-center gap-3',
+          animator({ name: 'fadeInUp' })
+        )}
+      >
+        <img
+          width='100'
+          height='100'
+          alt='Khela Logo'
+          src={APP_DATA.logo}
+          className={animator({ name: 'zoomIn' })}
+        />
+        <h1 className='text-5xl text-amber-600 mb-1 mt-4 font-title'>{APP_DATA.name}</h1>
+        <p className='text-sm'>A Fun Project For</p>
+        <p className='text-sm'>Sharing your PEE and POOP with friends!</p>
+        <p
+          className={clsx(
+            'text-sm mt-2 rounded bg-slate-100 p-4',
+            animator({ name: 'fadeIn', delay: '1s' })
+          )}
+        >
+          In Persian, especially in the dialect of Isfahan,
+          <br />
+          &#34;Khela&#34; (خِلا) is a slang word for toilet.
+        </p>
+        <Button
+          asChild
+          className={clsx(
+            'bg-amber-600 mt-3',
+            animator({ name: 'bounceIn', delay: '2s' })
+          )}
+        >
+          <Link to={APP_ROUTES.login}>Let&#39;s Go Khela!</Link>
+        </Button>
+      </section>
+
+      <div className='absolute bottom-5 text-sm text-slate-500 w-full text-center'>
+        Version {APP_DATA.version}
+      </div>
+    </main>
   );
 }
