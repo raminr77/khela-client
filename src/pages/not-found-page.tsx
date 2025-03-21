@@ -8,7 +8,7 @@ export function NotFoundPage() {
   return (
     <main
       className={clsx(
-        'w-full h-screen overflow-hidden flex flex-col items-center justify-center',
+        'w-full h-dvh overflow-hidden flex flex-col items-center justify-center',
         animator({ name: 'fadeIn', speed: 'faster' })
       )}
     >

@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 
 export function LandingPage() {
   return (
-    <main className='w-full h-screen overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
+    <main className='w-full h-dvh overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
       <section
         className={clsx(
           'flex flex-col items-center gap-3',
