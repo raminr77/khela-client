@@ -40,7 +40,6 @@
   --sidebar-ring: oklch(70.4% 0.04 256.788deg);
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .dark {
   --background: oklch(12.9% 0.042 264.695deg);
   --foreground: oklch(98.4% 0.003 247.858deg);
