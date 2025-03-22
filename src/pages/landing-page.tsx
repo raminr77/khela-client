@@ -1,5 +1,5 @@
-import { Button } from '@/shared/components/ui/button.tsx';
 import { APP_DATA, APP_ROUTES } from '@/shared/constants';
+import { Button } from '@/shared/components/ui/button';
 import { animator } from '@/shared/helpers';
 import { Link } from 'react-router';
 import { clsx } from 'clsx';
@@ -14,8 +14,8 @@ export function LandingPage() {
         )}
       >
         <img
-          width='100'
-          height='100'
+          width={100}
+          height={100}
           alt='Khela Logo'
           src={APP_DATA.logo}
           className={animator({ name: 'zoomIn' })}
@@ -35,12 +35,9 @@ export function LandingPage() {
         </p>
         <Button
           asChild
-          className={clsx(
-            'bg-amber-600 mt-3',
-            animator({ name: 'bounceIn', delay: '2s' })
-          )}
+          className={clsx('bg-amber-600 mt-3', animator({ name: 'fadeIn', delay: '1s' }))}
         >
-          <Link to={APP_ROUTES.login}>Let&#39;s Go Khela!</Link>
+          <Link to={APP_ROUTES.register}>Let&#39;s Go Khela!</Link>
         </Button>
       </section>
 

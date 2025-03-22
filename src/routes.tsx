@@ -8,7 +8,6 @@ import { NotFoundPage } from '@/pages/not-found-page';
 import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
-import { ForgetPasswordPage } from '@/pages/auth/forget-password-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
 
@@ -29,7 +28,6 @@ export function Routes() {
         <Route element={<AuthLayout />}>
           <Route path={APP_ROUTES.login} element={<LoginPage />} />
           <Route path={APP_ROUTES.register} element={<RegisterPage />} />
-          <Route path={APP_ROUTES.forgetPassword} element={<ForgetPasswordPage />} />
         </Route>
 
         {ROUTES_DATA.map(({ path, element, isPrivate }) => (
