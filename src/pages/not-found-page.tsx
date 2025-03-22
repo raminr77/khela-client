@@ -1,4 +1,4 @@
-import { Button } from '@/shared/components/ui/button.tsx';
+import { Button } from '@/shared/components/ui/button';
 import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 import { Link } from 'react-router';
