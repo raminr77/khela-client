@@ -8,6 +8,8 @@ import { NotFoundPage } from '@/pages/not-found-page';
 import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
+import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
+import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
 
@@ -28,6 +30,11 @@ export function Routes() {
         <Route element={<AuthLayout />}>
           <Route path={APP_ROUTES.login} element={<LoginPage />} />
           <Route path={APP_ROUTES.register} element={<RegisterPage />} />
+          <Route path={APP_ROUTES.recoverPassword} element={<RecoverPasswordPage />} />
+          <Route
+            path={`${APP_ROUTES.resetPassword}:token`}
+            element={<ResetPasswordPage />}
+          />
         </Route>
 
         {ROUTES_DATA.map(({ path, element, isPrivate }) => (

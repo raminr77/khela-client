@@ -35,9 +35,21 @@ export function LandingPage() {
         </p>
         <Button
           asChild
-          className={clsx('bg-amber-600 mt-3', animator({ name: 'fadeIn', delay: '1s' }))}
+          size='lg'
+          className={clsx(
+            'bg-amber-600 w-full mt-3',
+            animator({ name: 'fadeIn', delay: '1s' })
+          )}
         >
-          <Link to={APP_ROUTES.register}>Let&#39;s Go Khela!</Link>
+          <Link to={APP_ROUTES.login}>Login</Link>
+        </Button>
+        <Button
+          asChild
+          size='lg'
+          variant='outline'
+          className={clsx('w-full', animator({ name: 'fadeIn', delay: '1s' }))}
+        >
+          <Link to={APP_ROUTES.register}>Create Account</Link>
         </Button>
       </section>
 

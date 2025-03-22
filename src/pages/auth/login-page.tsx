@@ -6,6 +6,9 @@ import { animator } from '@/shared/helpers';
 import { Link } from 'react-router';
 import { clsx } from 'clsx';
 
+import { GoogleAuthButton } from './components/google-auth-button';
+import { DividerLine } from './components/divider-line';
+
 export function LoginPage() {
   return (
     <div className='w-full flex flex-col gap-3 text-center items-center justify-center'>
@@ -16,18 +19,9 @@ export function LoginPage() {
         Welcome back! Please sign in to continue
       </span>
 
-      <div className='my-4 w-full'>
-        <Button variant='outline' className='w-full'>
-          <img width={18} height={18} src='/images/google.png' alt='Google' />
-          Continue With Google
-        </Button>
-      </div>
+      <GoogleAuthButton />
 
-      <div className='w-full flex items-center gap-4 text-xs mb-4'>
-        <span className='w-full border-t border-slate-200' />
-        <span>OR</span>
-        <span className='w-full border-t border-slate-200' />
-      </div>
+      <DividerLine />
 
       <div className={clsx('flex flex-col w-full gap-3', animator({ name: 'fadeIn' }))}>
         <Label htmlFor='login-page-email'>Email</Label>
@@ -40,9 +34,14 @@ export function LoginPage() {
         </Button>
       </div>
 
-      <Button variant='link' className='w-full' asChild>
-        <Link to={APP_ROUTES.register}>Create new account</Link>
-      </Button>
+      <div className='w-full flex flex-col gap-2 items-center mt-2'>
+        <Button variant='link' className='w-full' asChild>
+          <Link to={APP_ROUTES.register}>Create new account</Link>
+        </Button>
+        <Button variant='link' className='w-full' asChild>
+          <Link to={APP_ROUTES.recoverPassword}>Recover Your Password</Link>
+        </Button>
+      </div>
     </div>
   );
 }

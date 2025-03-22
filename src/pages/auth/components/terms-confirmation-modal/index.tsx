@@ -7,13 +7,14 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger
-} from '@/shared/components/ui/alert-dialog.tsx';
+} from '@/shared/components/ui/alert-dialog';
+import { InfoIcon } from 'lucide-react';
 
 export function TermsConfirmationModal() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <button className='text-sm text-amber-700'>( Read More )</button>
+      <AlertDialogTrigger asChild className='inline-block'>
+        <InfoIcon className='text-amber-600 size-5' />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
