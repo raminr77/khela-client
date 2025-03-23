@@ -1,2 +1,3 @@
+export * from './api';
+export * from './app-data';
 export * from './app-routes';
-export * from './app-data.ts';
