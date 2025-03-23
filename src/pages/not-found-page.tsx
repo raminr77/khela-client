@@ -38,7 +38,7 @@ export function NotFoundPage() {
         <p className='mt-2'>Just like when you’re late for the toilet.</p>
 
         <Button asChild variant='outline' className='mt-6'>
-          <Link to={APP_ROUTES.main}>Back to Khela!</Link>
+          <Link to={APP_ROUTES.main}>Back to Khela</Link>
         </Button>
       </div>
     </main>

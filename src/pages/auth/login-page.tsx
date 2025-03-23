@@ -13,7 +13,7 @@ export function LoginPage() {
   return (
     <div className='w-full flex flex-col gap-3 text-center items-center justify-center'>
       <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
-        Sign in to Khela!
+        Sign in to Khela
       </h3>
       <span className={clsx('text-xs', animator({ name: 'fadeInUp' }))}>
         Welcome back! Please sign in to continue
