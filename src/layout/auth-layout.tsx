@@ -9,13 +9,19 @@ export function AuthLayout() {
       <img
         alt=''
         src='/images/top-wave.svg'
-        className={clsx('absolute top-0 w-full', animator({ name: 'slideInDown' }))}
+        className={clsx(
+          'absolute top-0 left-0 right-0 w-full',
+          animator({ name: 'slideInDown' })
+        )}
       />
 
       <img
         alt=''
         src='/images/bottom-wave.svg'
-        className={clsx('absolute bottom-0 w-full', animator({ name: 'slideInUp' }))}
+        className={clsx(
+          'absolute bottom-0 left-0 right-0 w-full',
+          animator({ name: 'slideInUp' })
+        )}
       />
 
       <div
