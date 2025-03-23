@@ -29,7 +29,7 @@ export function LoginPage() {
         <Label htmlFor='login-page-password'>Password</Label>
         <Input id='login-page-password' type='password' />
 
-        <Button size='lg' className='mt-2 bg-amber-600'>
+        <Button size='lg' className='mt-2'>
           Login
         </Button>
       </div>

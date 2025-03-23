@@ -9,19 +9,19 @@ export function AuthLayout() {
       <img
         alt=''
         src='/images/top-wave.svg'
-        className={clsx('absolute top-0 w-full', animator({ name: 'fadeInDown' }))}
+        className={clsx('absolute top-0 w-full', animator({ name: 'slideInDown' }))}
       />
 
       <img
         alt=''
         src='/images/bottom-wave.svg'
-        className={clsx('absolute bottom-0 w-full', animator({ name: 'fadeInUp' }))}
+        className={clsx('absolute bottom-0 w-full', animator({ name: 'slideInUp' }))}
       />
 
       <div
         className={clsx(
           'overflow-hidden border w-8/10 max-w-md p-5 rounded-md flex flex-col items-center justify-center bg-white/50 backdrop-blur-md',
-          animator({ name: 'slideInUp', speed: 'fast' })
+          animator({ name: 'fadeInUp', speed: 'fast' })
         )}
       >
         <Link className='mb-2' to={APP_ROUTES.landing}>

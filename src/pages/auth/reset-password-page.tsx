@@ -45,7 +45,7 @@ export function ResetPasswordPage() {
         <Label htmlFor='reset-page-password'>New Password</Label>
         <Input id='reset-page-password' />
 
-        <Button size='lg' className='mt-2 bg-amber-600'>
+        <Button size='lg' className='mt-2'>
           Set New Password
         </Button>
       </div>

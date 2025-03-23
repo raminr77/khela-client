@@ -39,7 +39,7 @@ export function RegisterPage() {
             <TermsConfirmationModal />
           </label>
         </div>
-        <Button size='lg' className='mt-2 bg-amber-600'>
+        <Button size='lg' className='mt-2'>
           Register
         </Button>
       </div>

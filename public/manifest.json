@@ -2,6 +2,7 @@
   "id": "/",
   "dir": "ltr",
   "scope": "/",
+  "lang": "en-US",
   "name": "Khela",
   "start_url": "/",
   "short_name": "Khela",

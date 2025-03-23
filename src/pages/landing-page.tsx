@@ -7,6 +7,12 @@ import { clsx } from 'clsx';
 export function LandingPage() {
   return (
     <main className='w-full h-dvh overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
+      <img
+        alt=''
+        src='/images/top-wave.svg'
+        className={clsx('absolute top-0 w-full', animator({ name: 'slideInDown' }))}
+      />
+
       <section className='flex flex-col items-center gap-3'>
         <img
           width={100}
@@ -31,10 +37,7 @@ export function LandingPage() {
         <Button
           asChild
           size='lg'
-          className={clsx(
-            'bg-amber-600 w-full mt-3',
-            animator({ name: 'fadeIn', delay: '1s' })
-          )}
+          className={clsx('w-full mt-3', animator({ name: 'fadeIn', delay: '1s' }))}
         >
           <Link to={APP_ROUTES.login}>Login</Link>
         </Button>

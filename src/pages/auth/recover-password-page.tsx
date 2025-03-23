@@ -22,7 +22,7 @@ export function RecoverPasswordPage() {
         <Label htmlFor='recover-page-email'>Email</Label>
         <Input id='recover-page-email' />
 
-        <Button size='lg' className='mt-2 bg-amber-600'>
+        <Button size='lg' className='mt-2'>
           Send Recover Link
         </Button>
       </div>
