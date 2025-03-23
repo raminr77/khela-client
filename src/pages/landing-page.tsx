@@ -7,18 +7,13 @@ import { clsx } from 'clsx';
 export function LandingPage() {
   return (
     <main className='w-full h-dvh overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
-      <section
-        className={clsx(
-          'flex flex-col items-center gap-3',
-          animator({ name: 'fadeInUp' })
-        )}
-      >
+      <section className='flex flex-col items-center gap-3'>
         <img
           width={100}
           height={100}
           alt='Khela Logo'
           src={APP_DATA.logo}
-          className={animator({ name: 'zoomIn' })}
+          className={animator({ name: 'jackInTheBox' })}
         />
         <h1 className='text-5xl text-amber-600 mb-1 mt-4 font-title'>{APP_DATA.name}</h1>
         <p className='text-sm'>A Fun Project For</p>

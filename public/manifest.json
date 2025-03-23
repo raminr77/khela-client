@@ -29,6 +29,11 @@
   ],
   "icons": [
     {
+      "src": "images/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
       "src": "images/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
@@ -41,7 +46,7 @@
     {
       "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any maskable",
+      "purpose": "maskable",
       "src": "images/icons/maskable-icon-180.png"
     }
   ]

@@ -8,14 +8,20 @@ export function AuthLayout() {
     <div className='w-full h-dvh flex items-center justify-center overflow-hidden select-none relative'>
       <img
         alt=''
-        src='/images/wave.svg'
+        src='/images/top-wave.svg'
+        className={clsx('absolute top-0 w-full', animator({ name: 'fadeInDown' }))}
+      />
+
+      <img
+        alt=''
+        src='/images/bottom-wave.svg'
         className={clsx('absolute bottom-0 w-full', animator({ name: 'fadeInUp' }))}
       />
 
       <div
         className={clsx(
           'overflow-hidden border w-8/10 max-w-md p-5 rounded-md flex flex-col items-center justify-center bg-white/50 backdrop-blur-md',
-          animator({ name: 'fadeInUp' })
+          animator({ name: 'slideInUp', speed: 'fast' })
         )}
       >
         <Link className='mb-2' to={APP_ROUTES.landing}>
