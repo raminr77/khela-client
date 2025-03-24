@@ -41,7 +41,6 @@ export function GoogleAuthButton() {
         onSuccess={handleSuccess}
         onError={handleFailure}
         text='continue_with'
-        width={300}
         useOneTap
       />
     </div>
