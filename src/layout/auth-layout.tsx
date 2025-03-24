@@ -23,7 +23,7 @@ export function AuthLayout() {
 
       <div
         className={clsx(
-          'overflow-hidden border w-8/10 max-w-md p-5 rounded-md flex flex-col items-center justify-center bg-white/30 backdrop-blur-md',
+          'overflow-hidden border w-8/10 max-w-md p-5 rounded-md flex flex-col items-center justify-center bg-white/10 backdrop-blur-md',
           animator({ name: 'fadeInUp', speed: 'fast' })
         )}
       >
