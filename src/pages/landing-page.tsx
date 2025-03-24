@@ -1,8 +1,9 @@
+import { Link } from 'react-router';
+import { clsx } from 'clsx';
+
 import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { Button } from '@/shared/components/ui/button';
 import { animator } from '@/shared/helpers';
-import { Link } from 'react-router';
-import { clsx } from 'clsx';
 
 export function LandingPage() {
   return (
@@ -10,10 +11,7 @@ export function LandingPage() {
       <img
         alt=''
         src='/images/top-wave.svg'
-        className={clsx(
-          'absolute top-0 left-0 right-0 w-full',
-          animator({ name: 'slideInDown' })
-        )}
+        className='absolute top-0 left-0 right-0 w-full'
       />
 
       <section className='flex flex-col items-center gap-3'>
