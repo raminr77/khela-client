@@ -8,14 +8,14 @@ import { animator } from '@/shared/helpers';
 
 export function TermsPage() {
   return (
-    <div className='flex flex-col items-center gap-3 p-5'>
+    <div className='flex flex-col items-center gap-3'>
       <Link to={APP_ROUTES.main}>
         <img
           width={70}
           height={70}
           alt='khela logo'
           src='/images/logo.png'
-          className={clsx('mt-5', animator({ name: 'jackInTheBox' }))}
+          className={clsx('mt-2', animator({ name: 'jackInTheBox' }))}
         />
       </Link>
 

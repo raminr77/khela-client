@@ -10,4 +10,4 @@ export const APP_ROUTES = {
   terms: '/terms/',
   // Not Found
   notFound: '/not-found/'
-};
+} as const;

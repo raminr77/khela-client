@@ -7,6 +7,10 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   base: '/',
+  // For developer testing on the Safari
+  // server: {
+  //   host: '127.0.0.1',
+  // },
   plugins: [
     react(),
     tailwindcss(),
