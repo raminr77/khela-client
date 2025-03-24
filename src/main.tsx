@@ -1,3 +1,4 @@
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { createRoot } from 'react-dom/client';
 import { Toaster } from 'react-hot-toast';
 import { Provider } from 'react-redux';
@@ -13,9 +14,11 @@ import '@/styles/main.scss';
 
 createRoot(document.getElementById('app')!).render(
   <StrictMode>
-    <Provider store={store}>
-      <Routes />
-      <Toaster />
-    </Provider>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID ?? ''}>
+      <Provider store={store}>
+        <Routes />
+        <Toaster />
+      </Provider>
+    </GoogleOAuthProvider>
   </StrictMode>
 );
