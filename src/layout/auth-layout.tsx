@@ -1,7 +1,8 @@
-import { APP_ROUTES } from '@/shared/constants';
-import { animator } from '@/shared/helpers';
 import { Link, Outlet } from 'react-router';
 import { clsx } from 'clsx';
+
+import { APP_ROUTES } from '@/shared/constants';
+import { animator } from '@/shared/helpers';
 
 export function AuthLayout() {
   return (
@@ -9,14 +10,14 @@ export function AuthLayout() {
       <img
         alt=''
         src='/images/top-wave.svg'
-        className='absolute top-0 left-0 right-0 w-full'
+        className='absolute top-0 -left-2 right-0 w-full min-w-[110%]'
       />
 
       <img
         alt=''
         src='/images/bottom-wave.svg'
         className={clsx(
-          'absolute bottom-0 left-0 right-0 w-full',
+          'absolute bottom-0 -left-2 right-0 w-full min-w-[110%]',
           animator({ name: 'fadeInUp' })
         )}
       />

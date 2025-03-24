@@ -11,7 +11,7 @@ export function LandingPage() {
       <img
         alt=''
         src='/images/top-wave.svg'
-        className='absolute top-0 left-0 right-0 w-full'
+        className='absolute top-0 -left-2 right-0 w-full min-w-[110%]'
       />
 
       <section className='flex flex-col items-center gap-3'>

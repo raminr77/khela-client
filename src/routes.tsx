@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router';
 
-import { AuthContainer } from '@/layout/auth-container';
+import { AppContainer } from '@/layout/app-container';
 import { AuthLayout } from '@/layout/auth-layout';
 import { APP_ROUTES } from '@/shared/constants';
 
@@ -47,7 +47,7 @@ export function Routes() {
           <Route
             key={path}
             path={path}
-            element={<AuthContainer isPrivate={isPrivate}>{element}</AuthContainer>}
+            element={<AppContainer isPrivate={isPrivate}>{element}</AppContainer>}
           />
         ))}
 

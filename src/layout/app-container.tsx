@@ -5,17 +5,17 @@ import type { ReactNode } from 'react';
 import { userSelectors } from '@/shared/store/features/user/user-selectors';
 import { APP_ROUTES } from '@/shared/constants';
 
-interface AuthContainerProps {
+interface AppContainerProps {
   isPrivate: boolean;
   children: ReactNode;
 }
 
-export function AuthContainer({ isPrivate, children }: AuthContainerProps) {
+export function AppContainer({ isPrivate, children }: AppContainerProps) {
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
 
   if (isPrivate && !isAuthenticated) {
     return <Navigate to={APP_ROUTES.login} replace />;
   }
 
-  return children;
+  return <div>{children}</div>;
 }
