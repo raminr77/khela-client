@@ -7,6 +7,7 @@ export const APP_ROUTES = {
   recoverPassword: '/auth/recover-password/',
   // App
   main: '/main/',
+  terms: '/terms/',
   // Not Found
   notFound: '/not-found/'
 };

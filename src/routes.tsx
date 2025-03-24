@@ -12,12 +12,18 @@ import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
+import { TermsPage } from '@/pages/terms-page';
 
 const ROUTES_DATA = [
   {
     isPrivate: true,
     element: <MainPage />,
     path: APP_ROUTES.main
+  },
+  {
+    isPrivate: false,
+    element: <TermsPage />,
+    path: APP_ROUTES.terms
   }
 ] as const;
 
