@@ -9,6 +9,7 @@ import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
+import { UserProfilePage } from '@/pages/user/user-profile-page.tsx';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
@@ -19,6 +20,11 @@ const ROUTES_DATA = [
     isPrivate: true,
     element: <MainPage />,
     path: APP_ROUTES.main
+  },
+  {
+    isPrivate: true,
+    path: APP_ROUTES.userProfile,
+    element: <UserProfilePage />
   },
   {
     isPrivate: false,

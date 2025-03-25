@@ -13,9 +13,12 @@ export function AppHeader() {
         >
           {APP_DATA.name + '!'}
         </Link>
-        <div className='size-10 flex items-center justify-center rounded-full bg-white cursor-pointer hover:text-amber-600 duration-200'>
+        <Link
+          to={APP_ROUTES.userProfile}
+          className='size-10 flex items-center justify-center rounded-full bg-white cursor-pointer hover:text-amber-600 duration-200'
+        >
           <UserIcon />
-        </div>
+        </Link>
       </div>
 
       <img

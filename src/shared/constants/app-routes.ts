@@ -8,6 +8,7 @@ export const APP_ROUTES = {
   // App
   main: '/main/',
   terms: '/terms/',
+  userProfile: '/user/profile/',
   // Not Found
   notFound: '/not-found/'
 } as const;
