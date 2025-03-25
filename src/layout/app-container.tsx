@@ -7,6 +7,7 @@ import { userSelectors } from '@/shared/store/features/user/user-selectors';
 import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
+import { AppNavbar } from '@/layout/components/app-navbar';
 import { AppHeader } from './components/app-header';
 
 interface AppContainerProps {
@@ -17,14 +18,15 @@ interface AppContainerProps {
 export function AppContainer({ isPrivate, children }: AppContainerProps) {
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
 
-  if (isPrivate && !isAuthenticated) {
-    return <Navigate to={APP_ROUTES.login} replace />;
-  }
+  // if (isPrivate && !isAuthenticated) {
+  //   return <Navigate to={APP_ROUTES.login} replace />;
+  // }
+  console.log(isAuthenticated, isPrivate, APP_ROUTES, Navigate);
 
   return (
-    <div className={clsx('w-full flex flex-col', animator({ name: 'fadeIn' }))}>
+    <div className={clsx('w-full flex flex-col relative', animator({ name: 'fadeIn' }))}>
       <AppHeader />
-
+      <AppNavbar />
       <div className='px-5 mt-3'>{children}</div>
     </div>
   );
