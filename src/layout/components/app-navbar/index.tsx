@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router';
 import { HomeIcon } from 'lucide-react';
-import { Link } from 'react-router';
+import { useState } from 'react';
 import { clsx } from 'clsx';
 
 import { APP_ROUTES } from '@/shared/constants';
@@ -35,16 +35,18 @@ const NAV_ITEMS = [
 ] as const;
 
 export function AppNavbar() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const { pathname } = useLocation();
+  const routeIndex = NAV_ITEMS.findIndex(({ url }) => url.match(pathname));
+  const [activeIndex, setActiveIndex] = useState<number>(routeIndex || 2);
 
-  useEffect(() => {
-    console.log('loaded!');
-  }, []);
+  if (routeIndex === -1) {
+    return null;
+  }
 
   return (
     <nav
       className={clsx(
-        'fixed bottom-0 w-full flex items-center justify-center pb-5 px-5 bg-linear-to-t from-white from-40% to-transparent',
+        'fixed bottom-0 w-full flex items-center justify-center pb-4 px-5 bg-white border-t border-amber-500 z-40',
         animator({ name: 'fadeInUp' })
       )}
     >
@@ -59,17 +61,20 @@ export function AppNavbar() {
                 className={clsx(
                   'flex flex-col gap-1 items-center justify-center pb-1 duration-500 transform',
                   {
-                    'translate-y-0': isActive,
-                    'translate-y-4': !isActive
+                    'translate-y-0 text-amber-900': isActive,
+                    'translate-y-4 text-slate-500': !isActive
                   }
                 )}
               >
                 <Icon />
                 <span
-                  className={clsx('text-sm duration-500 w-full text-center pb-1', {
-                    'opacity-100': isActive,
-                    'opacity-0': !isActive
-                  })}
+                  className={clsx(
+                    'text-sm duration-500 w-full text-center pb-1 text-amber-900',
+                    {
+                      'opacity-100': isActive,
+                      'opacity-0': !isActive
+                    }
+                  )}
                 >
                   {title}
                 </span>
@@ -80,7 +85,7 @@ export function AppNavbar() {
 
         <div
           style={{ transform: `translateX(${activeIndex * 56 + 12 * activeIndex}px)` }}
-          className='w-14 h-18 shadow-lg rounded absolute bottom-0 duration-500 transform left-0 bg-linear-to-t from-amber-500 to-transparent'
+          className='w-14 h-18 shadow-lg rounded absolute bottom-0 duration-500 transform left-0 bg-[#FFA725]'
         />
       </ul>
     </nav>

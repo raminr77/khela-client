@@ -2,7 +2,6 @@ import { Link } from 'react-router';
 import { clsx } from 'clsx';
 
 import { TermsContent } from '@/shared/components/terms-content';
-import { Button } from '@/shared/components/ui/button';
 import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
@@ -15,24 +14,20 @@ export function TermsPage() {
           height={70}
           alt='khela logo'
           src='/images/logo.png'
-          className={clsx('mt-2', animator({ name: 'jackInTheBox' }))}
+          className={clsx('mt-2', animator({ name: 'fadeInUp' }))}
         />
       </Link>
 
       <h3
         className={clsx(
           'font-title text-center text-xl py-4 text-amber-700',
-          animator({ name: 'fadeInUp' })
+          animator({ name: 'fadeIn' })
         )}
       >
         Terms and Conditions for Khela!
       </h3>
 
       <TermsContent />
-
-      <Button asChild className='bg-amber-600 w-full mb-6' size='lg'>
-        <Link to={APP_ROUTES.main}>Return to Application</Link>
-      </Button>
     </div>
   );
 }
