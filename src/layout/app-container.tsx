@@ -23,7 +23,12 @@ export function AppContainer({ isPrivate, children }: AppContainerProps) {
   }
 
   return (
-    <div className={clsx('w-full flex flex-col relative', animator({ name: 'fadeIn' }))}>
+    <div
+      className={clsx(
+        'w-full flex flex-col relative select-none',
+        animator({ name: 'fadeIn' })
+      )}
+    >
       <AppHeader />
       <AppNavbar />
       <div className='px-5 mt-3 pb-20 z-0'>{children}</div>
