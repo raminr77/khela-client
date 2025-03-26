@@ -1,14 +1,18 @@
-import { Link, Outlet } from 'react-router';
+import { Link, Outlet, useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { clsx } from 'clsx';
 
 import { userSelectors } from '@/shared/store/features/user/user-selectors';
-import { APP_DATA, APP_ROUTES } from '@/shared/constants';
-import { Button } from '@/shared/components/ui/button';
+import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
 export function AuthLayout() {
+  const navigate = useNavigate();
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
+
+  if (isAuthenticated) {
+    navigate(APP_ROUTES.main);
+  }
 
   return (
     <div className='w-full h-dvh flex items-center justify-center overflow-hidden select-none relative'>
@@ -43,16 +47,7 @@ export function AuthLayout() {
           />
         </Link>
 
-        {isAuthenticated ? (
-          <div className='flex flex-col items-center justify-center gap-4'>
-            <h3>{`You are already Logged In ${APP_DATA.name}`}</h3>
-            <Button>
-              <Link to={APP_ROUTES.main}>Back To Main Page</Link>
-            </Button>
-          </div>
-        ) : (
-          <Outlet />
-        )}
+        <Outlet />
       </div>
     </div>
   );
