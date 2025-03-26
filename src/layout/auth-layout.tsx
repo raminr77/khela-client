@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from 'react-router';
+import { Link, Navigate, Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
 import { clsx } from 'clsx';
 
@@ -7,11 +7,10 @@ import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
 export function AuthLayout() {
-  const navigate = useNavigate();
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
 
   if (isAuthenticated) {
-    navigate(APP_ROUTES.main);
+    return <Navigate to={APP_ROUTES.main} replace />;
   }
 
   return (
