@@ -17,10 +17,15 @@ const userSlices = createSlice({
       ...action.payload,
       isAuthenticated: true
     }),
+    loginAction: (state) => ({
+      ...state,
+      isAuthenticated: true
+    }),
     cleanUserDataAction: () => initialState
   }
 });
 
-export const { cleanUserDataAction, setGoogleAuthDataAction } = userSlices.actions;
+export const { loginAction, cleanUserDataAction, setGoogleAuthDataAction } =
+  userSlices.actions;
 
 export default userSlices.reducer;

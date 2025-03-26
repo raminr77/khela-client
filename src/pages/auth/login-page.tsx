@@ -1,15 +1,24 @@
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router';
+import { clsx } from 'clsx';
+
+import { loginAction } from '@/shared/store/features/user/user-slices';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
 import { APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
-import { Link } from 'react-router';
-import { clsx } from 'clsx';
 
 import { GoogleAuthButton } from './components/google-auth-button';
 import { DividerLine } from './components/divider-line';
 
 export function LoginPage() {
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(loginAction());
+  };
+
   return (
     <div className='w-full flex flex-col gap-3 text-center items-center justify-center'>
       <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
@@ -29,7 +38,7 @@ export function LoginPage() {
         <Label htmlFor='login-page-password'>Password</Label>
         <Input id='login-page-password' type='password' />
 
-        <Button size='lg' className='mt-2'>
+        <Button size='lg' className='mt-2' onClick={handleLogin}>
           Login
         </Button>
       </div>

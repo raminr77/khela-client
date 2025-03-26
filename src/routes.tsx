@@ -9,8 +9,12 @@ import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
-import { UserProfilePage } from '@/pages/user/user-profile-page.tsx';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
+import { FriendListPage } from '@/pages/friend/friend-list-page';
+import { UserProfilePage } from '@/pages/user/user-profile-page';
+import { SettingsPage } from '@/pages/settings/settings-page';
+import { HotNewsPage } from '@/pages/hot-news/hot-news-page';
+import { RankingPage } from '@/pages/ranking/ranking-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
 import { TermsPage } from '@/pages/terms-page';
@@ -23,8 +27,28 @@ const ROUTES_DATA = [
   },
   {
     isPrivate: true,
+    path: APP_ROUTES.hotNews,
+    element: <HotNewsPage />
+  },
+  {
+    isPrivate: true,
+    path: APP_ROUTES.friends,
+    element: <FriendListPage />
+  },
+  {
+    isPrivate: true,
+    path: APP_ROUTES.ranking,
+    element: <RankingPage />
+  },
+  {
+    isPrivate: true,
     path: APP_ROUTES.userProfile,
     element: <UserProfilePage />
+  },
+  {
+    isPrivate: true,
+    path: APP_ROUTES.settings,
+    element: <SettingsPage />
   },
   {
     isPrivate: false,
