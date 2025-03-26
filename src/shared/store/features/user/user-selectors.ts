@@ -1,9 +1,11 @@
 import { createDraftSafeSelector } from '@reduxjs/toolkit';
 
+import { REDUCER_NAMES } from '@/shared/store/reducer-names';
+
 import { UserInitialState } from './user-types';
 
 const userInfo = createDraftSafeSelector(
-  (state: { user: UserInitialState }) => state.user,
+  (state: { [REDUCER_NAMES.user]: UserInitialState }) => state[REDUCER_NAMES.user],
   (state) => ({
     ...state
   })
