@@ -8,12 +8,17 @@
   "short_name": "Khela",
   "display": "fullscreen",
   "theme_color": "#FFA725",
-  "related_applications": [],
   "background_color": "#F1F6F9",
   "orientation": "portrait-primary",
-  "prefer_related_applications": false,
+  "prefer_related_applications": true,
   "categories": ["social", "lifestyle", "entertainment", "health"],
   "description": "Khela is a fun project for sharing your pee and poop with friends!",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://khela.ir/manifest.json"
+    }
+  ],
   "screenshots": [
     {
       "type": "image/png",

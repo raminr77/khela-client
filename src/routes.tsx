@@ -8,6 +8,7 @@ import { NotFoundPage } from '@/pages/not-found-page';
 import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
+import { AppInstaller } from '@/layout/components/app-installer/indx.tsx';
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
 import { FriendListPage } from '@/pages/friend/friend-list-page';
@@ -58,6 +59,10 @@ const ROUTES_DATA = [
 ] as const;
 
 export function Routes() {
+  if (!window.matchMedia('(display-mode: standalone)').matches) {
+    return <AppInstaller />;
+  }
+
   return (
     <BrowserRouter>
       <ReactRoutes>

@@ -26,7 +26,7 @@ export function AuthLayout() {
         src='/images/bottom-wave.svg'
         className={clsx(
           'absolute bottom-0 -left-2 right-0 w-full min-w-[110%]',
-          animator({ name: 'fadeInUp' })
+          animator({ name: 'slideInUp' })
         )}
       />
 
