@@ -16,7 +16,7 @@ export function SettingsPage() {
     dispatch(cleanUserDataAction());
     toast.success({ message: 'We will miss you, Bye! 🤕' });
 
-    navigate(APP_ROUTES.landing);
+    navigate(APP_ROUTES.login);
   };
 
   return (

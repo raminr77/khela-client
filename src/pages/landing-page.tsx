@@ -1,11 +1,19 @@
-import { Link } from 'react-router';
+import { Link, Navigate } from 'react-router';
+import { useSelector } from 'react-redux';
 import { clsx } from 'clsx';
 
+import { userSelectors } from '@/shared/store/features/user/user-selectors';
 import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { Button } from '@/shared/components/ui/button';
 import { animator } from '@/shared/helpers';
 
 export function LandingPage() {
+  const { isAuthenticated } = useSelector(userSelectors.userInfo);
+
+  if (isAuthenticated) {
+    return <Navigate to={APP_ROUTES.main} replace />;
+  }
+
   return (
     <main className='w-full h-dvh overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
       <img
