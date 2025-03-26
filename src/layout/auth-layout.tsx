@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { clsx } from 'clsx';
 
 import { userSelectors } from '@/shared/store/features/user/user-selectors';
-import { APP_ROUTES } from '@/shared/constants';
+import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
 export function AuthLayout() {
@@ -17,12 +17,14 @@ export function AuthLayout() {
     <div className='w-full h-dvh flex items-center justify-center overflow-hidden select-none relative'>
       <img
         alt=''
+        loading='lazy'
         src='/images/top-wave.svg'
         className='absolute top-0 -left-2 right-0 w-full min-w-[110%]'
       />
 
       <img
         alt=''
+        loading='lazy'
         src='/images/bottom-wave.svg'
         className={clsx(
           'absolute bottom-0 -left-2 right-0 w-full min-w-[110%]',
@@ -40,7 +42,8 @@ export function AuthLayout() {
           <img
             width={70}
             height={70}
-            alt='Khela Logo'
+            loading='lazy'
+            alt={APP_DATA.name}
             src='/images/toilet-roll.png'
             className={animator({ name: 'jackInTheBox' })}
           />

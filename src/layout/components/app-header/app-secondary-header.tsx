@@ -23,12 +23,14 @@ export function AppSecondaryHeader() {
 
       <Link
         to={APP_ROUTES.main}
-        className={clsx(
-          'text-2xl text-amber-800 font-title',
-          animator({ name: 'slideInLeft' })
-        )}
+        className={clsx('text-2xl text-amber-800', animator({ name: 'slideInLeft' }))}
       >
-        {APP_DATA.name + '!'}
+        <img
+          loading='lazy'
+          className='h-7'
+          alt={APP_DATA.name}
+          src='/images/khela-text-logo.svg'
+        />
       </Link>
 
       <Link to={APP_ROUTES.hotNews} className='size-10 flex items-center justify-center'>

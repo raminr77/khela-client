@@ -18,6 +18,7 @@ export function LandingPage() {
     <main className='w-full h-dvh overflow-hidden flex items-center justify-center flex-col p-5 select-none relative'>
       <img
         alt=''
+        loading='lazy'
         src='/images/top-wave.svg'
         className='absolute top-0 -left-2 right-0 w-full min-w-[110%]'
       />
@@ -26,11 +27,17 @@ export function LandingPage() {
         <img
           width={100}
           height={100}
-          alt='Khela Logo'
+          loading='lazy'
+          alt={APP_DATA.name}
           src={APP_DATA.logo}
           className={animator({ name: 'jackInTheBox' })}
         />
-        <h1 className='text-5xl text-amber-600 mb-1 mt-4 font-title'>{APP_DATA.name}</h1>
+        <img
+          loading='lazy'
+          alt={APP_DATA.name}
+          className='h-10 my-2'
+          src='/images/khela-text-logo.svg'
+        />
         <p className='text-sm'>A Fun Project For</p>
         <p className='text-sm'>Sharing your PEE and POOP with friends!</p>
         <p

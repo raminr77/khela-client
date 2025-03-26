@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 export function RecoverPasswordPage() {
   return (
     <div className='w-full flex flex-col gap-3 text-center items-center justify-center'>
-      <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
+      <h3 className={clsx('text-lg', animator({ name: 'fadeInUp' }))}>
         Recover your password
       </h3>
       <span className={clsx('text-xs', animator({ name: 'fadeInUp' }))}>

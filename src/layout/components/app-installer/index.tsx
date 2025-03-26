@@ -59,11 +59,17 @@ export function AppInstaller() {
         <img
           width={70}
           height={70}
-          alt='Khela Logo'
+          loading='lazy'
+          alt={APP_DATA.name}
           src={APP_DATA.logo}
           className={animator({ name: 'jackInTheBox' })}
         />
-        <h3 className='mt-3 text-amber-600 font-title text-4xl'>{APP_DATA.name + '!'}</h3>
+        <img
+          loading='lazy'
+          alt={APP_DATA.name}
+          className='h-10 my-2'
+          src='/images/khela-text-logo.svg'
+        />
         <p className='text-sm'>{`Add ${APP_DATA.name} Application To Your Phone`}</p>
       </div>
 
@@ -84,7 +90,12 @@ export function AppInstaller() {
               })}
             >
               {imageUrl ? (
-                <img src={imageUrl} alt={APP_DATA.name} className='w-full h-full' />
+                <img
+                  loading='lazy'
+                  src={imageUrl}
+                  alt={APP_DATA.name}
+                  className='w-full h-full'
+                />
               ) : (
                 <Icon size={16} />
               )}

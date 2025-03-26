@@ -16,7 +16,7 @@ export function ResetPasswordPage() {
   if (isNotValid) {
     return (
       <div className='w-full flex flex-col gap-2 text-center items-center justify-center'>
-        <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
+        <h3 className={clsx('text-lg mb-4', animator({ name: 'fadeInUp' }))}>
           Your link is not valid!
         </h3>
         <Button variant='outline' className='w-full' asChild>
@@ -28,7 +28,7 @@ export function ResetPasswordPage() {
 
   return (
     <div className='w-full flex flex-col gap-2 text-center items-center justify-center'>
-      <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
+      <h3 className={clsx('text-lg', animator({ name: 'fadeInUp' }))}>
         Reset your password
       </h3>
 

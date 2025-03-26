@@ -8,9 +8,9 @@ import { NotFoundPage } from '@/pages/not-found-page';
 import { LandingPage } from '@/pages/landing-page';
 import { MainPage } from '@/pages/main-page';
 
-import { AppInstaller } from '@/layout/components/app-installer/indx.tsx';
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
+import { AppInstaller } from '@/layout/components/app-installer';
 import { FriendListPage } from '@/pages/friend/friend-list-page';
 import { UserProfilePage } from '@/pages/user/user-profile-page';
 import { SettingsPage } from '@/pages/settings/settings-page';

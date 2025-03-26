@@ -20,7 +20,7 @@ export function TermsConfirmationModal() {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Terms and Conditions for Khela!</AlertDialogTitle>
+          <AlertDialogTitle className='text-md'>Terms and Conditions</AlertDialogTitle>
           <AlertDialogDescription className='mt-4 overflow-y-scroll max-h-[400px]'>
             <TermsContent />
           </AlertDialogDescription>

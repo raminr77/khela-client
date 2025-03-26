@@ -14,7 +14,7 @@ import { DividerLine } from './components/divider-line';
 export function RegisterPage() {
   return (
     <div className='w-full flex flex-col gap-3 text-center items-center justify-center'>
-      <h3 className={clsx('font-title text-2xl', animator({ name: 'fadeInUp' }))}>
+      <h3 className={clsx('text-lg', animator({ name: 'fadeInUp' }))}>
         Create your account
       </h3>
       <span className={clsx('text-xs', animator({ name: 'fadeInUp' }))}>

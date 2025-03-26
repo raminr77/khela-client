@@ -16,16 +16,12 @@ export function NotFoundPage() {
         className={clsx('mb-7', animator({ name: 'jackInTheBox' }))}
         src='/images/404-poop.png'
         alt='404 Page Not Found'
+        loading='lazy'
         height={100}
         width={100}
       />
-      <h1
-        className={clsx(
-          'font-title text-2xl text-amber-600',
-          animator({ name: 'fadeInUp' })
-        )}
-      >
-        Something smells off…
+      <h1 className={clsx('text-2xl text-amber-600', animator({ name: 'fadeInUp' }))}>
+        Ops, not found!
       </h1>
 
       <div
@@ -38,7 +34,7 @@ export function NotFoundPage() {
         <p className='mt-2'>Just like when you’re late for the toilet.</p>
 
         <Button asChild variant='outline' className='mt-6'>
-          <Link to={APP_ROUTES.main}>Back to Khela</Link>
+          <Link to={APP_ROUTES.main}>Back to App</Link>
         </Button>
       </div>
     </main>

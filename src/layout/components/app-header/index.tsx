@@ -25,6 +25,7 @@ export function AppHeader() {
 
       <img
         alt=''
+        loading='lazy'
         src='/images/main-wave.svg'
         className='fixed top-0 -left-4 right-0 w-full min-w-[110%] min-md:hidden duration-500 z-10'
       />
