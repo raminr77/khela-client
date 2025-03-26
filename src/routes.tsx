@@ -59,7 +59,10 @@ const ROUTES_DATA = [
 ] as const;
 
 export function Routes() {
-  if (!window.matchMedia('(display-mode: standalone)').matches) {
+  if (
+    !window.matchMedia('(display-mode: standalone)').matches &&
+    location.hostname !== 'localhost'
+  ) {
     return <AppInstaller />;
   }
 
