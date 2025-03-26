@@ -18,10 +18,9 @@ interface AppContainerProps {
 export function AppContainer({ isPrivate, children }: AppContainerProps) {
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
 
-  // if (isPrivate && !isAuthenticated) {
-  //   return <Navigate to={APP_ROUTES.login} replace />;
-  // }
-  console.log(isAuthenticated, isPrivate, APP_ROUTES, Navigate);
+  if (isPrivate && !isAuthenticated) {
+    return <Navigate to={APP_ROUTES.login} replace />;
+  }
 
   return (
     <div className={clsx('w-full flex flex-col relative', animator({ name: 'fadeIn' }))}>

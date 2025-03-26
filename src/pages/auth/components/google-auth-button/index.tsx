@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
 
 import { setGoogleAuthDataAction } from '@/shared/store/features/user/user-slices';
-import { APP_ROUTES } from '@/shared/constants';
+import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { toast } from '@/shared/helpers';
 
 type GoogleUser = {
@@ -31,7 +31,7 @@ export function GoogleAuthButton() {
     dispatch(setGoogleAuthDataAction(userData));
     navigate(APP_ROUTES.main);
     toast.success({
-      message: 'Welcome to Khela.'
+      message: `Welcome to ${APP_DATA.name} 💩`
     });
   };
 

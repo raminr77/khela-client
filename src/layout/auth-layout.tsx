@@ -1,10 +1,15 @@
 import { Link, Outlet } from 'react-router';
+import { useSelector } from 'react-redux';
 import { clsx } from 'clsx';
 
-import { APP_ROUTES } from '@/shared/constants';
+import { userSelectors } from '@/shared/store/features/user/user-selectors';
+import { APP_DATA, APP_ROUTES } from '@/shared/constants';
+import { Button } from '@/shared/components/ui/button';
 import { animator } from '@/shared/helpers';
 
 export function AuthLayout() {
+  const { isAuthenticated } = useSelector(userSelectors.userInfo);
+
   return (
     <div className='w-full h-dvh flex items-center justify-center overflow-hidden select-none relative'>
       <img
@@ -37,7 +42,17 @@ export function AuthLayout() {
             className={animator({ name: 'jackInTheBox' })}
           />
         </Link>
-        <Outlet />
+
+        {isAuthenticated ? (
+          <div className='flex flex-col items-center justify-center gap-4'>
+            <h3>{`You are already Logged In ${APP_DATA.name}`}</h3>
+            <Button>
+              <Link to={APP_ROUTES.main}>Back To Main Page</Link>
+            </Button>
+          </div>
+        ) : (
+          <Outlet />
+        )}
       </div>
     </div>
   );

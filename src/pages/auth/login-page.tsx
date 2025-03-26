@@ -1,22 +1,27 @@
+import { Link, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router';
 import { clsx } from 'clsx';
 
 import { loginAction } from '@/shared/store/features/user/user-slices';
+import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
-import { APP_ROUTES } from '@/shared/constants';
-import { animator } from '@/shared/helpers';
+import { animator, toast } from '@/shared/helpers';
 
 import { GoogleAuthButton } from './components/google-auth-button';
 import { DividerLine } from './components/divider-line';
 
 export function LoginPage() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogin = () => {
     dispatch(loginAction());
+    navigate(APP_ROUTES.main);
+    toast.success({
+      message: `Welcome to ${APP_DATA.name} 💩`
+    });
   };
 
   return (
