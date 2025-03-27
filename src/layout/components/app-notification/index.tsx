@@ -19,8 +19,10 @@ export function AppNotification() {
   };
 
   if (isFirstLoad.current) {
-    Notification.requestPermission().then((permission) => {
-      sethidePermissionBanner(permission === 'granted');
+    requestNotificationPermission().then((token) => {
+      if (token) {
+        sethidePermissionBanner(true);
+      }
     });
 
     onMessageListener().then(() => {

@@ -24,6 +24,7 @@ export async function requestNotificationPermission() {
       }
       return token;
     }
+    return null;
   } catch (error) {
     console.error('Error getting notification permission:', error);
     toast.error({ message: 'We need permission to send notification. 🥹' });
