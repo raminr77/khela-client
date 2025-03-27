@@ -1,35 +1,36 @@
 import {
+  onMessage,
   getMessaging,
-  getToken as getMessagingToken,
-  onMessage
+  getToken as getMessagingToken
 } from 'firebase/messaging';
-import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 
 import { FIREBASE_CONFIGS } from '@/shared/constants';
 import { toast } from '@/shared/helpers';
 
-const app = initializeApp(FIREBASE_CONFIGS);
+const FIREBASE_APP = initializeApp(FIREBASE_CONFIGS);
+const FIREBASE_MESSAGING = getMessaging(FIREBASE_APP);
 
-const analytics = getAnalytics(app);
-const messaging = getMessaging(app);
-
-Notification.requestPermission().then((permission) => {
-  if (permission === 'granted') {
-    getMessagingToken(messaging, { vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY })
-      .then((currentNotificationToken) => {
-        console.log(currentNotificationToken);
-      })
-      .catch((error) => {
-        console.log('An error occurred while retrieving token. ', error);
+export async function requestNotificationPermission() {
+  try {
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      const token = await getMessagingToken(FIREBASE_MESSAGING, {
+        vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY
       });
-  } else {
+      console.log('- FCM Token:', token);
+      return token;
+    }
+  } catch (error) {
+    console.error('Error getting notification permission:', error);
     toast.error({ message: 'We need permission to send notification. 🥹' });
   }
-});
+}
 
-onMessage(messaging, (payload) => {
-  console.log('Message received:', payload);
-});
-
-console.log(analytics);
+export function onMessageListener() {
+  return new Promise((resolve) => {
+    onMessage(FIREBASE_MESSAGING, (payload) => {
+      resolve(payload);
+    });
+  });
+}

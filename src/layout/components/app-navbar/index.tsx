@@ -38,7 +38,6 @@ export function AppNavbar() {
             <li key={`nav-${index}-${title}`} className='w-16 overflow-hidden z-10'>
               <Link
                 to={url}
-                // onClick={() => setActiveIndex(index)}
                 className={clsx(
                   'flex flex-col gap-1 items-center justify-center pb-1 duration-500 transform',
                   {

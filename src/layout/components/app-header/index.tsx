@@ -5,6 +5,7 @@ import { getNavbarMenuIndex } from '@/shared/helpers';
 
 import { AppSecondaryHeader } from './app-secondary-header';
 import { AppPrimaryHeader } from './app-primary-header';
+import { AppNotification } from '../app-notification';
 
 export function AppHeader() {
   const { pathname } = useLocation();
@@ -22,6 +23,7 @@ export function AppHeader() {
       >
         {isNavbarItem ? <AppPrimaryHeader /> : <AppSecondaryHeader />}
       </div>
+      <AppNotification />
 
       <img
         alt=''
