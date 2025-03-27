@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { BellRingIcon } from 'lucide-react';
+import { useRef, useState } from 'react';
 import { clsx } from 'clsx';
 
 import { requestNotificationPermission, onMessageListener } from '@/shared/libs/firebase';
 import { Button } from '@/shared/components/ui/button';
 import { animator, toast } from '@/shared/helpers';
-import { BellRingIcon } from 'lucide-react';
 
 export function AppNotification() {
+  const isFirstLoad = useRef<boolean>(true);
   const [hidePermissionBanner, sethidePermissionBanner] = useState<boolean>(false);
 
   const handleUserAction = (approve = false) => {
@@ -16,13 +17,16 @@ export function AppNotification() {
     sethidePermissionBanner(true);
   };
 
-  Notification.requestPermission().then((permission) => {
-    sethidePermissionBanner(permission === 'granted');
-  });
-
   onMessageListener().then(() => {
     toast.info({ message: 'You have a new message!' });
   });
+
+  if (isFirstLoad.current) {
+    Notification.requestPermission().then((permission) => {
+      sethidePermissionBanner(permission === 'granted');
+    });
+    isFirstLoad.current = false;
+  }
 
   if (hidePermissionBanner) {
     return null;
