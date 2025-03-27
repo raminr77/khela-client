@@ -3,13 +3,8 @@ export function isLocal(): boolean {
 }
 
 export function isAppInstalled(): boolean {
-  const isStandalone: boolean = !!(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      window.navigator.standalone
-    )
-  );
-  return isStandalone && !isLocal();
+  const mediaQuery = '(display-mode: standalone)' as const;
+  // eslint-disable-next-line
+  // @ts-ignore
+  return !!(window.matchMedia(mediaQuery).matches || window.navigator.standalone);
 }
