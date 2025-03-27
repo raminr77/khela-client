@@ -16,7 +16,6 @@ messaging.onBackgroundMessage((payload) => {
   const notificationTitle = payload.notification.title ?? 'Khela!';
   self.registration.showNotification(notificationTitle, {
     icon: './images/favicon.png',
-    body: payload.notification.body,
-    tag: payload.messageId || undefined
+    body: payload.notification.body
   });
 });
