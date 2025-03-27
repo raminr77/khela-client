@@ -13,10 +13,9 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
+  const notificationTitle = payload.notification.title ?? 'Khela!';
+  self.registration.showNotification(notificationTitle, {
     icon: './images/favicon.png',
     body: payload.notification.body,
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
+  });
 });
