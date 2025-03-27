@@ -17,5 +17,6 @@ messaging.onBackgroundMessage((payload) => {
   self.registration.showNotification(notificationTitle, {
     icon: './images/favicon.png',
     body: payload.notification.body,
+    tag: payload.messageId || undefined
   });
 });
