@@ -10,7 +10,7 @@ import userSlice from './features/user/user-slices';
 import { REDUCER_NAMES } from './reducer-names';
 
 const persistConfig = {
-  key: `${APP_DATA.name.toUpperCase()}_PERSIST_DATA`,
+  key: `${APP_DATA.name.toUpperCase()}_PERSISTED_DATA`,
   whitelist: [REDUCER_NAMES.user],
   version: 1,
   storage
