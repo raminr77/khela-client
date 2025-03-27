@@ -2,6 +2,7 @@ import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router';
 
 import { AppContainer } from '@/layout/app-container';
 import { AuthLayout } from '@/layout/auth-layout';
+import { isAppInstalled } from '@/shared/helpers';
 import { APP_ROUTES } from '@/shared/constants';
 
 import { NotFoundPage } from '@/pages/not-found-page';
@@ -59,10 +60,7 @@ const ROUTES_DATA = [
 ] as const;
 
 export function Routes() {
-  if (
-    !window.matchMedia('(display-mode: standalone)').matches &&
-    location.hostname !== 'localhost'
-  ) {
+  if (!isAppInstalled()) {
     return <AppInstaller />;
   }
 
