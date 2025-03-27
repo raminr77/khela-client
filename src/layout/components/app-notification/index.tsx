@@ -8,7 +8,8 @@ import { animator, toast } from '@/shared/helpers';
 
 export function AppNotification() {
   const isFirstLoad = useRef<boolean>(true);
-  const [hidePermissionBanner, sethidePermissionBanner] = useState<boolean>(false);
+  // UI of this component skipped (For showing this UI change it to FALSE)
+  const [hidePermissionBanner, sethidePermissionBanner] = useState<boolean>(true);
 
   const handleUserAction = (approve = false) => {
     if (approve) {
