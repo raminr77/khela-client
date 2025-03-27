@@ -5,8 +5,8 @@ import {
 } from 'firebase/messaging';
 import { initializeApp } from 'firebase/app';
 
-import { FIREBASE_CONFIGS } from '@/shared/constants';
-import { toast } from '@/shared/helpers';
+import { APP_DATA, FIREBASE_CONFIGS } from '@/shared/constants';
+import { isLocal, toast } from '@/shared/helpers';
 
 const FIREBASE_APP = initializeApp(FIREBASE_CONFIGS);
 const FIREBASE_MESSAGING = getMessaging(FIREBASE_APP);
@@ -18,7 +18,10 @@ export async function requestNotificationPermission() {
       const token = await getMessagingToken(FIREBASE_MESSAGING, {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY
       });
-      console.log('- FCM Token:', token);
+      if (isLocal()) {
+        console.log(`- FCM Token [${APP_DATA.name.toUpperCase()}]:`, token);
+        localStorage.setItem(`${APP_DATA.name.toUpperCase()}_CLIENT_FCM_TOKEN`, token);
+      }
       return token;
     }
   } catch (error) {
