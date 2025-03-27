@@ -17,14 +17,15 @@ export function AppNotification() {
     sethidePermissionBanner(true);
   };
 
-  onMessageListener().then(() => {
-    toast.info({ message: 'You have a new message!' });
-  });
-
   if (isFirstLoad.current) {
     Notification.requestPermission().then((permission) => {
       sethidePermissionBanner(permission === 'granted');
     });
+
+    onMessageListener().then(() => {
+      toast.info({ message: 'You have a new message!' });
+    });
+
     isFirstLoad.current = false;
   }
 
