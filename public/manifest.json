@@ -9,6 +9,7 @@
   "display": "fullscreen",
   "theme_color": "#FFA725",
   "background_color": "#F1F6F9",
+  "gcm_sender_id": "103953800507",
   "orientation": "portrait-primary",
   "prefer_related_applications": true,
   "categories": ["social", "lifestyle", "entertainment", "health"],
