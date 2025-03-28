@@ -7,7 +7,7 @@ import { APP_ROUTES } from '@/shared/constants';
 
 import { NotFoundPage } from '@/pages/not-found-page';
 import { LandingPage } from '@/pages/landing-page';
-import { MainPage } from '@/pages/main-page';
+import { MainPage } from '@/pages/main/main-page';
 
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
