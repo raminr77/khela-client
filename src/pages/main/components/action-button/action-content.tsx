@@ -1,10 +1,17 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, type ChangeEvent, useMemo } from 'react';
 import { clsx } from 'clsx';
 
 import { animator, generateRandomCurvePath } from '@/shared/helpers';
+import { Textarea } from '@/shared/components/ui/textarea';
 import { Slider } from '@/shared/components/ui/slider';
+import { Label } from '@/shared/components/ui/label';
 
-const TYPES = [
+const TYPES = {
+  pee: 'PEE',
+  poop: 'POOP'
+} as const;
+
+const TYPE_OPTIONS = [
   {
     id: 1,
     title: 'Pee',
@@ -17,27 +24,27 @@ const TYPES = [
     value: 'POOP',
     image: '/images/poop.png'
   }
-];
+] as const;
 
 export function ActionContent() {
-  const [size, setSize] = useState<number[]>([0]);
-  const [selectedType, setSelectedType] = useState<string>(TYPES[0].value);
+  const [size, setSize] = useState<number[]>([10]);
+  const [selectedType, setSelectedType] = useState<string>(TYPES.pee);
 
   const handleChangeType = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedType(event.target.value);
-    setSize([0]);
+    setSize([10]);
   };
 
   const handleChangeSize = (value: number[]) => {
     setSize(value);
   };
 
-  const svgPath = generateRandomCurvePath(1);
+  const svgPath = useMemo(() => generateRandomCurvePath(1), [size]);
 
   return (
     <div className='w-full px-5 py-2 overflow-hidden'>
       <div className='flex items-center justify-center gap-4 w-full'>
-        {TYPES.map(({ id, title, value, image }) => (
+        {TYPE_OPTIONS.map(({ id, title, value, image }) => (
           <div
             key={id}
             className={clsx(
@@ -59,8 +66,8 @@ export function ActionContent() {
               className={clsx(
                 'w-18 h-18 rounded flex items-center justify-center rounded-md border-3 grayscale peer-checked:grayscale-0 duration-300 relative overflow-hidden bg-slate-50',
                 {
-                  'peer-checked:border-yellow-500': value === TYPES[0].value,
-                  'peer-checked:border-amber-900': value === TYPES[1].value
+                  'peer-checked:border-yellow-500': value === TYPES.pee,
+                  'peer-checked:border-amber-900': value === TYPES.poop
                 }
               )}
             >
@@ -74,9 +81,9 @@ export function ActionContent() {
               />
               {selectedType === value && (
                 <div
-                  className={clsx('absolute bottom-0 left-0 right-0 duration-100 z-10', {
-                    'bg-yellow-400': value === TYPES[0].value,
-                    'bg-amber-900': value === TYPES[1].value
+                  className={clsx('absolute bottom-0 left-0 right-0 duration-500 z-10', {
+                    'bg-yellow-400': value === TYPES.pee,
+                    'bg-amber-900': value === TYPES.poop
                   })}
                   style={{ height: `${(66 * size[0]) / 100}px` }}
                 >
@@ -86,7 +93,7 @@ export function ActionContent() {
                     viewBox='0 0 1440 320'
                   >
                     <path
-                      fill={value === TYPES[0].value ? '#fdc700' : '#7b3306'}
+                      fill={value === TYPES.pee ? '#fdc700' : '#7b3306'}
                       className='duration-500'
                       fillOpacity='1'
                       d={svgPath}
@@ -106,11 +113,22 @@ export function ActionContent() {
           animator({ name: 'fadeInUp' })
         )}
       >
-        <p>Size</p>
-        <div className='flex items-center gap-4'>
-          <Slider value={size} max={100} step={1} onValueChange={handleChangeSize} />
-          <span>{size}</span>
+        <Label htmlFor='action-size'>Size</Label>
+        <div className='flex items-center gap-4 w-full'>
+          <Slider
+            id='action-size'
+            value={size}
+            max={100}
+            step={1}
+            onValueChange={handleChangeSize}
+          />
+          <span className='whitespace-nowrap'>{`${size[0] * 20} ${selectedType === TYPES.pee ? 'ml' : 'g'}`}</span>
         </div>
+
+        <Label htmlFor='action-note'>
+          Note <span className='text-sm text-slate-400'>( Optional )</span>
+        </Label>
+        <Textarea id='action-note' rows={2} />
       </div>
     </div>
   );
