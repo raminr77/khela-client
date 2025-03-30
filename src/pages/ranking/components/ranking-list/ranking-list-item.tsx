@@ -9,10 +9,9 @@ interface RankingListItemProps {
 }
 
 const CUSTOM_STYLES: Record<number, string> = {
-  1: 'border-amber-400',
-  2: 'border-slate-300',
-  3: 'border-slate-300',
-  4: 'border-slate-300'
+  1: 'border-amber-400 mb-1',
+  2: 'border-slate-300 mb-1',
+  3: 'border-slate-300 mb-3'
 };
 
 const NICKNAMES: Record<number, { title: string; image: string }> = {
@@ -47,17 +46,15 @@ export function RankingListItem({ data, index = 0 }: RankingListItemProps) {
       )}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      {NICKNAMES[order] && (
-        <img
-          width={36}
-          alt='Badge'
-          height={36}
-          loading='lazy'
-          src={NICKNAMES[order].image}
-          style={{ animationDelay: `${index * 0.3}s` }}
-          className={animator({ name: 'jackInTheBox' })}
-        />
-      )}
+      <img
+        width={36}
+        alt='Badge'
+        height={36}
+        loading='lazy'
+        style={{ animationDelay: `${index * 0.3}s` }}
+        className={animator({ name: 'jackInTheBox' })}
+        src={NICKNAMES[order] ? NICKNAMES[order].image : '/images/badges/people.png'}
+      />
 
       <div className='w-full flex items-center flex-col gap-2'>
         <div className='flex items-center justify-between w-full font-bold'>
@@ -77,9 +74,9 @@ export function RankingListItem({ data, index = 0 }: RankingListItemProps) {
         <div className='flex items-center justify-between w-full text-sm'>
           <div className='flex items-center gap-2 flex-wrap'>
             <span className='text-sm'>{`Rank: ${order}`}</span>
-            {NICKNAMES[order] && (
-              <p className='text-slate-500'>{`( ${NICKNAMES[order].title} )`}</p>
-            )}
+            <p className='text-slate-500'>
+              {NICKNAMES[order] ? `( ${NICKNAMES[order].title} )` : 'Laborers'}
+            </p>
           </div>
           <div className='flex items-center gap-2 text-xs'>
             <div className='flex items-center gap-2'>
