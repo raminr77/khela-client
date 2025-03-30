@@ -108,10 +108,7 @@ export function ActionContent() {
       </div>
 
       <div
-        className={clsx(
-          'w-full mt-2 flex flex-col gap-4',
-          animator({ name: 'fadeInUp' })
-        )}
+        className={clsx('w-full mt-2 flex flex-col gap-4', animator({ name: 'fadeIn' }))}
       >
         <Label htmlFor='action-size'>Size</Label>
         <div className='flex items-center gap-4 w-full'>
