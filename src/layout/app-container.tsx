@@ -31,7 +31,7 @@ export function AppContainer({ isPrivate, children }: AppContainerProps) {
     >
       <AppHeader />
       <AppNavbar />
-      <div className='px-5 mt-3 pb-20 z-0'>{children}</div>
+      <div className='px-5 mt-3 pb-24 z-0'>{children}</div>
     </div>
   );
 }
