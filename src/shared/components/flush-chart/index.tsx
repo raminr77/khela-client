@@ -10,9 +10,9 @@ import {
   CardDescription
 } from '@/shared/components/ui/card';
 import { type ChartConfig } from '@/shared/components/ui/chart';
-import { animator, getMonthName } from '@/shared/helpers';
 import { Button } from '@/shared/components/ui/button';
 import { Toggle } from '@/shared/components/ui/toggle';
+import { getMonthName } from '@/shared/helpers';
 
 import { LineStyleChart } from './line-style-chart';
 import { BarStyleChart } from './bar-style-chart';
@@ -51,7 +51,7 @@ export function FlushChart({
   };
 
   return (
-    <Card className={animator({ name: 'fadeInUp' })}>
+    <Card>
       <CardHeader>
         <div className='flex items-center justify-between'>
           <CardTitle>{title}</CardTitle>
