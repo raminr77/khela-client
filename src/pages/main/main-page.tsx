@@ -1,5 +1,7 @@
 import { FlushChart } from '@/shared/components/flush-chart';
 
+import { ActionButton } from './components/action-button';
+
 export function MainPage() {
   const chartData = [
     { poop: 0, pee: 4, label: 'Mon', day: 22, month: 3, year: 2025 },
@@ -11,8 +13,9 @@ export function MainPage() {
     { poop: 2, pee: 4, label: 'Sun', day: 28, month: 3, year: 2025 }
   ];
   return (
-    <div>
+    <div className='flex flex-col gap-4 items-center'>
       <FlushChart data={chartData} />
+      <ActionButton />
     </div>
   );
 }

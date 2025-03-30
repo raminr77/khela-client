@@ -51,7 +51,7 @@ export function FlushChart({
   };
 
   return (
-    <Card>
+    <Card className='w-full'>
       <CardHeader>
         <div className='flex items-center justify-between'>
           <CardTitle>{title}</CardTitle>
