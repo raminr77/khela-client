@@ -19,6 +19,7 @@ import { HotNewsPage } from '@/pages/hot-news/hot-news-page';
 import { RankingPage } from '@/pages/ranking/ranking-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
+import { UserPage } from '@/pages/user/user-page';
 import { TermsPage } from '@/pages/terms-page';
 
 const ROUTES_DATA = [
@@ -46,6 +47,11 @@ const ROUTES_DATA = [
     isPrivate: true,
     path: APP_ROUTES.userProfile,
     element: <UserProfilePage />
+  },
+  {
+    isPrivate: true,
+    element: <UserPage />,
+    path: `${APP_ROUTES.user}:userId`
   },
   {
     isPrivate: true,

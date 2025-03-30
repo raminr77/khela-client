@@ -1,7 +1,9 @@
 import { animator } from '@/shared/helpers';
 import { clsx } from 'clsx';
 
+import { APP_ROUTES } from '@/shared/constants';
 import type { RankItemData } from '../../types';
+import { Link } from 'react-router';
 
 interface RankingListItemProps {
   data: RankItemData;
@@ -36,60 +38,64 @@ const NICKNAMES: Record<number, { title: string; image: string }> = {
 
 export function RankingListItem({ data, index = 0 }: RankingListItemProps) {
   const order: number = index + 1;
-  const { name, pee, poop, score } = data;
+  const { id, name, pee, poop, score } = data;
   return (
     <li
-      className={clsx(
-        'flex items-center border py-2 rounded bg-white px-4 gap-4',
-        animator({ name: 'fadeIn' }),
-        CUSTOM_STYLES[order]
-      )}
+      className={animator({ name: 'fadeIn' })}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <img
-        width={36}
-        alt='Badge'
-        height={36}
-        loading='lazy'
-        style={{ animationDelay: `${index * 0.3}s` }}
-        className={animator({ name: 'jackInTheBox' })}
-        src={NICKNAMES[order] ? NICKNAMES[order].image : '/images/badges/people.png'}
-      />
+      <Link
+        to={`${APP_ROUTES.user}${id}/`}
+        className={clsx(
+          'flex items-center border py-2 rounded bg-white px-4 gap-4',
+          CUSTOM_STYLES[order]
+        )}
+      >
+        <img
+          width={36}
+          alt='Badge'
+          height={36}
+          loading='lazy'
+          style={{ animationDelay: `${index * 0.3}s` }}
+          className={animator({ name: 'jackInTheBox' })}
+          src={NICKNAMES[order] ? NICKNAMES[order].image : '/images/badges/people.png'}
+        />
 
-      <div className='w-full flex items-center flex-col gap-2'>
-        <div className='flex items-center justify-between w-full font-bold'>
-          <p>{name}</p>
-          <div className='flex items-center gap-1'>
-            <img
-              width={16}
-              alt='Score'
-              height={16}
-              loading='lazy'
-              src='/images/star.png'
-            />
-            <span className='text-sm text-amber-600'>{score}</span>
-          </div>
-        </div>
-
-        <div className='flex items-center justify-between w-full text-sm'>
-          <div className='flex items-center gap-2 flex-wrap'>
-            <span className='text-sm'>{`Rank: ${order}`}</span>
-            <p className='text-slate-500'>
-              {NICKNAMES[order] ? `( ${NICKNAMES[order].title} )` : 'Laborers'}
-            </p>
-          </div>
-          <div className='flex items-center gap-2 text-xs'>
-            <div className='flex items-center gap-2'>
-              <span className='w-2 h-2 rounded-full bg-amber-300' />
-              <span>{pee}</span>
-            </div>
-            <div className='flex items-center gap-2'>
-              <span className='w-2 h-2 rounded-full bg-amber-800' />
-              <span>{poop}</span>
+        <div className='w-full flex items-center flex-col gap-2'>
+          <div className='flex items-center justify-between w-full font-bold'>
+            <p>{name}</p>
+            <div className='flex items-center gap-1'>
+              <img
+                width={16}
+                alt='Score'
+                height={16}
+                loading='lazy'
+                src='/images/star.png'
+              />
+              <span className='text-sm text-amber-600'>{score}</span>
             </div>
           </div>
+
+          <div className='flex items-center justify-between w-full text-sm'>
+            <div className='flex items-center gap-2 flex-wrap'>
+              <span className='text-sm'>{`Rank: ${order}`}</span>
+              <p className='text-slate-500'>
+                {NICKNAMES[order] ? `( ${NICKNAMES[order].title} )` : 'Laborers'}
+              </p>
+            </div>
+            <div className='flex items-center gap-2 text-xs'>
+              <div className='flex items-center gap-2'>
+                <span className='w-2 h-2 rounded-full bg-amber-300' />
+                <span>{pee}</span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <span className='w-2 h-2 rounded-full bg-amber-800' />
+                <span>{poop}</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </Link>
     </li>
   );
 }

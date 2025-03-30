@@ -15,6 +15,7 @@ export const APP_ROUTES = {
   resetPassword: '/auth/reset-password/',
   recoverPassword: '/auth/recover-password/',
   // App
+  user: '/user/', // Should be: /user/{ id }/
   main: '/main/',
   terms: '/terms/',
   friends: '/friends/',
