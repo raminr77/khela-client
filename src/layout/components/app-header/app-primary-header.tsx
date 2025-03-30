@@ -5,6 +5,8 @@ import { clsx } from 'clsx';
 import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
+import { AppUserScoresHeader } from './app-user-scores-header';
+
 export function AppPrimaryHeader() {
   return (
     <>
@@ -19,12 +21,16 @@ export function AppPrimaryHeader() {
           src='/images/khela-text-logo.svg'
         />
       </Link>
-      <Link
-        to={APP_ROUTES.settings}
-        className='size-10 flex items-center justify-center text-slate-500'
-      >
-        <Settings2Icon />
-      </Link>
+
+      <div className='flex gap-2 items-center'>
+        <AppUserScoresHeader />
+        <Link
+          to={APP_ROUTES.settings}
+          className='size-10 flex items-center justify-center text-slate-500'
+        >
+          <Settings2Icon />
+        </Link>
+      </div>
     </>
   );
 }

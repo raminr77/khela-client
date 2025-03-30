@@ -5,6 +5,8 @@ import { clsx } from 'clsx';
 import { APP_DATA, APP_ROUTES } from '@/shared/constants';
 import { animator } from '@/shared/helpers';
 
+import { AppUserScoresHeader } from './app-user-scores-header';
+
 export function AppSecondaryHeader() {
   const navigate = useNavigate();
   const hasUnread = false;
@@ -33,13 +35,19 @@ export function AppSecondaryHeader() {
         />
       </Link>
 
-      <Link to={APP_ROUTES.hotNews} className='size-10 flex items-center justify-center'>
-        {hasUnread ? (
-          <BellDotIcon className='text-amber-600' />
-        ) : (
-          <BellIcon className='text-slate-600' />
-        )}
-      </Link>
+      <div className='flex gap-2 items-center'>
+        <AppUserScoresHeader />
+        <Link
+          to={APP_ROUTES.hotNews}
+          className='size-10 flex items-center justify-center'
+        >
+          {hasUnread ? (
+            <BellDotIcon className='text-amber-600' />
+          ) : (
+            <BellIcon className='text-slate-600' />
+          )}
+        </Link>
+      </div>
     </div>
   );
 }
