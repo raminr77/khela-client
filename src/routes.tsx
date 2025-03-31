@@ -12,13 +12,13 @@ import { MainPage } from '@/pages/main/main-page';
 import { RecoverPasswordPage } from '@/pages/auth/recover-password-page';
 import { ResetPasswordPage } from '@/pages/auth/reset-password-page';
 import { AppInstaller } from '@/layout/components/app-installer';
-import { FriendListPage } from '@/pages/friend/friend-list-page';
 import { UserProfilePage } from '@/pages/user/user-profile-page';
 import { SettingsPage } from '@/pages/settings/settings-page';
 import { HotNewsPage } from '@/pages/hot-news/hot-news-page';
 import { RankingPage } from '@/pages/ranking/ranking-page';
 import { RegisterPage } from '@/pages/auth/register-page';
 import { LoginPage } from '@/pages/auth/login-page';
+import { FriendsPage } from '@/pages/friends/page';
 import { UserPage } from '@/pages/user/user-page';
 import { TermsPage } from '@/pages/terms-page';
 
@@ -36,7 +36,7 @@ const ROUTES_DATA = [
   {
     isPrivate: true,
     path: APP_ROUTES.friends,
-    element: <FriendListPage />
+    element: <FriendsPage />
   },
   {
     isPrivate: true,
