@@ -25,13 +25,13 @@ export function AppContainer({ isPrivate, children }: AppContainerProps) {
   return (
     <div
       className={clsx(
-        'w-full flex flex-col relative select-none overflow-x-hidden',
+        'w-full flex flex-col relative select-none overflow-x-hidden items-center',
         animator({ name: 'fadeIn' })
       )}
     >
       <AppHeader />
       <AppNavbar />
-      <div className='px-5 mt-3 pb-24 z-0'>{children}</div>
+      <div className='w-full px-5 mt-3 pb-24 z-0 min-md:max-w-xl'>{children}</div>
     </div>
   );
 }
