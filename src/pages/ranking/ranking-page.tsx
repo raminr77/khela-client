@@ -1,8 +1,8 @@
 import { animator } from '@/shared/helpers';
-import { Link } from 'react-router';
 
-import { Button } from '@/shared/components/ui/button';
-import { APP_ROUTES } from '@/shared/constants';
+import { PlusButton } from '@/pages/friends/components/plus-button';
+import { EmptyList } from '@/shared/components/empty-list';
+import { SHARE_TYPES } from '@/shared/constants';
 
 import { RankingList } from './components/ranking-list';
 import type { RankItemData } from './types';
@@ -22,21 +22,13 @@ export function RankingPage() {
 
   if (data.length === 0) {
     return (
-      <div className='w-full flex items-center justify-center p-5 flex-col text-center gap-3'>
-        <img
-          width={128}
-          height={128}
-          loading='lazy'
-          alt='Empty List'
-          src='/images/empty-ranking.png'
-          className={animator({ name: 'fadeInLeft' })}
-        />
-        <h3 className='mt-5 text-lg text-amber-600'>There is no rank yet!</h3>
-        <p className='text-sm mb-4'>You can invite your friends!</p>
-        <Button>
-          <Link to={APP_ROUTES.friends}>Invite Your Friends</Link>
-        </Button>
-      </div>
+      <EmptyList
+        actionElement={<PlusButton type={SHARE_TYPES.friend} />}
+        title='There is no rank yet!'
+        actionLabel='Invite Your Friends'
+        imageURL='/images/empty-ranking.png'
+        message='You can invite your friends!'
+      />
     );
   }
 

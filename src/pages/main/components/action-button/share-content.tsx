@@ -2,28 +2,29 @@ import { useState, type ChangeEvent } from 'react';
 import { clsx } from 'clsx';
 
 import { Input } from '@/shared/components/ui/input';
+import type { ShareType } from '@/shared/types';
 import { animator } from '@/shared/helpers';
 
 type ListItem = {
   id: number;
   name: string;
+  type: ShareType;
   image: string | null;
-  type: 'GROUP' | 'FRIEND';
 };
 
 const list: ListItem[] = [
-  { id: 1, type: 'GROUP', name: 'Us Group', image: null },
-  { id: 2, type: 'GROUP', name: 'School Group', image: null },
-  { id: 3, type: 'FRIEND', name: 'Jack', image: null },
-  { id: 4, type: 'FRIEND', name: 'Anna', image: null },
-  { id: 5, type: 'FRIEND', name: 'Ali', image: null },
-  { id: 6, type: 'FRIEND', name: 'Ramin', image: null },
-  { id: 7, type: 'FRIEND', name: 'Janny', image: null },
-  { id: 8, type: 'FRIEND', name: 'Mary', image: null },
-  { id: 9, type: 'FRIEND', name: 'Mary', image: null },
-  { id: 10, type: 'FRIEND', name: 'Mary', image: null },
-  { id: 11, type: 'FRIEND', name: 'Mary', image: null },
-  { id: 12, type: 'FRIEND', name: 'Mary', image: null }
+  { id: 1, type: 'group', name: 'Us Group', image: null },
+  { id: 2, type: 'group', name: 'School Group', image: null },
+  { id: 3, type: 'friend', name: 'Jack', image: null },
+  { id: 4, type: 'friend', name: 'Anna', image: null },
+  { id: 5, type: 'friend', name: 'Ali', image: null },
+  { id: 6, type: 'friend', name: 'Ramin', image: null },
+  { id: 7, type: 'friend', name: 'Janny', image: null },
+  { id: 8, type: 'friend', name: 'Mary', image: null },
+  { id: 9, type: 'friend', name: 'Mary', image: null },
+  { id: 10, type: 'friend', name: 'Mary', image: null },
+  { id: 11, type: 'friend', name: 'Mary', image: null },
+  { id: 12, type: 'friend', name: 'Mary', image: null }
 ];
 
 export function ShareContent() {
