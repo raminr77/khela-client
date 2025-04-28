@@ -7,9 +7,24 @@ import { animator } from '@/shared/helpers';
 type ListItem = {
   id: number;
   name: string;
-  image: string;
+  image: string | null;
   type: 'GROUP' | 'FRIEND';
 };
+
+const list: ListItem[] = [
+  { id: 1, type: 'GROUP', name: 'Us Group', image: null },
+  { id: 2, type: 'GROUP', name: 'School Group', image: null },
+  { id: 3, type: 'FRIEND', name: 'Jack', image: null },
+  { id: 4, type: 'FRIEND', name: 'Anna', image: null },
+  { id: 5, type: 'FRIEND', name: 'Ali', image: null },
+  { id: 6, type: 'FRIEND', name: 'Ramin', image: null },
+  { id: 7, type: 'FRIEND', name: 'Janny', image: null },
+  { id: 8, type: 'FRIEND', name: 'Mary', image: null },
+  { id: 9, type: 'FRIEND', name: 'Mary', image: null },
+  { id: 10, type: 'FRIEND', name: 'Mary', image: null },
+  { id: 11, type: 'FRIEND', name: 'Mary', image: null },
+  { id: 12, type: 'FRIEND', name: 'Mary', image: null }
+];
 
 export function ShareContent() {
   const [filterText, setFilterText] = useState<string>('');
@@ -34,38 +49,17 @@ export function ShareContent() {
   const handleFilterList = ({ name }: ListItem) =>
     name.toLowerCase().match(filterText.toLowerCase());
 
-  const list: ListItem[] = [
-    { id: 1, type: 'GROUP', name: 'Us Group', image: '' },
-    { id: 2, type: 'GROUP', name: 'School Group', image: '' },
-    { id: 3, type: 'FRIEND', name: 'Jack', image: '' },
-    { id: 4, type: 'FRIEND', name: 'Anna', image: '' },
-    { id: 5, type: 'FRIEND', name: 'Ali', image: '' },
-    { id: 6, type: 'FRIEND', name: 'Ramin', image: '' },
-    { id: 7, type: 'FRIEND', name: 'Janny', image: '' },
-    { id: 8, type: 'FRIEND', name: 'Mary', image: '' },
-    { id: 9, type: 'FRIEND', name: 'Mary', image: '' },
-    { id: 10, type: 'FRIEND', name: 'Mary', image: '' },
-    { id: 11, type: 'FRIEND', name: 'Mary', image: '' },
-    { id: 12, type: 'FRIEND', name: 'Mary', image: '' }
-  ];
-
   return (
     <div
       className={clsx(
-        'w-full px-5 pb-4 pt-12 flex flex-col gap-4 h-72 overflow-y-auto',
+        'w-full px-5 py-2 flex flex-col gap-4',
         animator({ name: 'fadeIn' })
       )}
     >
-      <div className='fixed z-10 top-2 left-0 bg-white w-full px-5 py-2'>
-        <Input
-          placeholder='Search ...'
-          value={filterText}
-          onChange={handleSearchChange}
-        />
-      </div>
-      <div className='flex flex-wrap gap-6'>
+      <Input value={filterText} placeholder='Search ...' onChange={handleSearchChange} />
+      <div className='grid grid-cols-4 justify-center overflow-y-auto gap-6 max-h-64'>
         {list.filter(handleFilterList).map(({ id, name, image }, index) => (
-          <div key={id} className='flex items-center justify-center gap-2 flex-col'>
+          <div key={id} className='flex items-center justify-center gap-1 flex-col'>
             <input
               name='type'
               value={index}
@@ -78,7 +72,7 @@ export function ShareContent() {
             <label
               htmlFor={`share-to-${index}`}
               className={clsx(
-                'border-2 duration-300 p-1 w-16 h-16 bg-slate-100 cursor-pointer relative flex items-center justify-center rounded-full',
+                'border-2 overflow-hidden duration-300 w-16 h-16 bg-slate-100 cursor-pointer relative flex items-center justify-center rounded-full',
                 {
                   'border-primary': selectedItems.includes(index),
                   'border-transparent': !selectedItems.includes(index)
@@ -86,7 +80,7 @@ export function ShareContent() {
               )}
             >
               {image ? (
-                <img src={image} alt={name} />
+                <img className='w-full h-full' src={image} alt={name} />
               ) : (
                 name.substring(0, 2).toUpperCase()
               )}
