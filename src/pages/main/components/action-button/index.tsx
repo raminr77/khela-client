@@ -25,14 +25,12 @@ export function ActionButton() {
         </Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>New Shit!</DrawerTitle>
-          <DrawerDescription>
-            {showShareMenu
-              ? 'Do you want to share it with friends ?'
-              : 'Add your toilet story...'}
-          </DrawerDescription>
-        </DrawerHeader>
+        {!showShareMenu && (
+          <DrawerHeader>
+            <DrawerTitle>New Shit!</DrawerTitle>
+            <DrawerDescription>Add your toilet story...</DrawerDescription>
+          </DrawerHeader>
+        )}
 
         {showShareMenu ? <ShareContent /> : <ActionContent />}
 

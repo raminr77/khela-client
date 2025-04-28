@@ -42,15 +42,12 @@ export function ActionContent() {
   const svgPath = useMemo(() => generateRandomCurvePath(1), [size]);
 
   return (
-    <div className='w-full px-5 py-2 overflow-hidden'>
+    <div className='w-full px-5 py-2 overflow-y-auto'>
       <div className='flex items-center justify-center gap-4 w-full'>
         {TYPE_OPTIONS.map(({ id, title, value, image }) => (
           <div
             key={id}
-            className={clsx(
-              'flex items-center justify-center gap-1 flex-col text-xs',
-              animator({ name: 'jackInTheBox' })
-            )}
+            className='flex items-center justify-center gap-1 flex-col text-xs'
           >
             <input
               type='radio'
@@ -64,7 +61,7 @@ export function ActionContent() {
             <label
               htmlFor={`type-${title}`}
               className={clsx(
-                'w-18 h-18 rounded flex items-center justify-center rounded-md border-3 grayscale peer-checked:grayscale-0 duration-300 relative overflow-hidden bg-slate-50',
+                'w-18 h-18 rounded-md flex items-center justify-center border-3 grayscale peer-checked:grayscale-0 duration-300 relative overflow-hidden bg-slate-50',
                 {
                   'peer-checked:border-yellow-500': value === TYPES.pee,
                   'peer-checked:border-amber-900': value === TYPES.poop
@@ -81,15 +78,20 @@ export function ActionContent() {
               />
               {selectedType === value && (
                 <div
-                  className={clsx('absolute bottom-0 left-0 right-0 duration-500 z-10', {
-                    'bg-yellow-400': value === TYPES.pee,
-                    'bg-amber-900': value === TYPES.poop
-                  })}
-                  style={{ height: `${(66 * size[0]) / 100}px` }}
+                  className={clsx(
+                    'absolute bottom-0 left-0 right-0 duration-500 z-10 opacity-30',
+                    {
+                      'bg-yellow-400': value === TYPES.pee,
+                      'bg-amber-800': value === TYPES.poop
+                    }
+                  )}
+                  style={{
+                    height: `${(66 * size[0]) / 100}px`
+                  }}
                 >
                   <svg
-                    className='-top-3 absolute'
                     xmlns='http://www.w3.org/2000/svg'
+                    className='absolute -top-3'
                     viewBox='0 0 1440 320'
                   >
                     <path
