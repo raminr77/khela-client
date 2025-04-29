@@ -1,9 +1,0 @@
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "web",
-      "site": "https://khela.ir/manifest.json"
-    }
-  }
-]
