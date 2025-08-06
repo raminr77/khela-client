@@ -29,7 +29,7 @@ export function EmptyList({
         loading='lazy'
         src={imageURL}
         alt='Empty List'
-        className={animator({ name: 'jackInTheBox' })}
+        className={animator({ name: 'fadeIn' })}
       />
       <h3 className='mt-5 text-lg text-amber-600'>{title}</h3>
       <p className='text-sm mb-4'>{message}</p>
